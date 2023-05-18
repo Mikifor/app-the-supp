@@ -1,0 +1,9 @@
+.main {
+    text-align: left;
+    grid-area: profile;
+    background-color:lightgrey;
+}
+
+.Item {
+    color:black
+}

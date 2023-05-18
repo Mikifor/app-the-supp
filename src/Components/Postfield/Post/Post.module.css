@@ -1,0 +1,12 @@
+.post {
+  text-align: left;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px;
+  border-color: black;
+}
+
+.message {
+  padding: 2px; 
+}

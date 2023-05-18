@@ -1,0 +1,35 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    padding: 10px;
+    background-color: coral;
+}
+
+.active {
+    color :gold;
+}
+
+.person{
+    color:black;
+}
+
+.messagefield{
+    background-color: rgb(255, 173, 80);
+    padding:5px;
+    border-radius: 4px;
+}
+
+.namefield {
+    background-color: rgb(188, 255, 80);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.partner_message{
+    text-align: left;
+}
+
+.author_message{
+    text-align: right;
+}

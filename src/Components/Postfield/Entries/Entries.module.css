@@ -1,0 +1,8 @@
+main img {
+    width: 200px;
+}
+
+.main {
+    text-align: left;
+    grid-area: entries;
+}

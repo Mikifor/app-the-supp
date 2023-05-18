@@ -1,0 +1,22 @@
+ul li {
+  list-style-type: georgian;
+}
+
+.app-wrapper {
+  margin: 0 auto;
+  width: 800px;
+  display: grid;
+  grid-template-rows: 70px 1fr 1fr;
+  grid-template-columns: 120px 5fr;
+  grid-gap: 10px;
+  grid-template-areas:
+    "header header"
+    "navigation profile"
+    "navigation content"
+}
+
+.app-content {
+  text-align: center;
+  background-color:coral;
+  grid-area: content;
+}

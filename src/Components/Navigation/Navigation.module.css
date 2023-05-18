@@ -1,0 +1,14 @@
+.navigation {
+  text-align: center;
+  grid-area: navigation;
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.item {
+  color: whitesmoke
+}
+
+.active {
+  color:black;
+}
