@@ -25,6 +25,7 @@ const App = (props) => {
             <Route path='/messages/*' element={<Dialogs store={props.store} state={props.store.getState()}/>} />
             <Route path='/programs/*' element={<Programs/>} />
           </Routes>
+          
         </div>
       </div>
     </BrowserRouter> 
