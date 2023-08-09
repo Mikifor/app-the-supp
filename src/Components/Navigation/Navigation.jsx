@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import classes from './Navigation.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 
 let navbuttonInfo = [
@@ -16,4 +16,4 @@ const Navigation = () => {
   </div>
 }
 
-export default Navigation;
+export default Navigation

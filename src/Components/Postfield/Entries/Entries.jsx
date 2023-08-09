@@ -1,24 +1,25 @@
-import React from 'react';
-import classes from './Entries.module.css';
+import React from 'react'
+import classes from './Entries.module.css'
+import {newPostFunctionActionCreater, onChangePostFunctionActionCreater} from './../../../redux/postReducer' 
+
 
 const Main = (props) => {
 
-  let textareaRef = React.createRef();
+  let textareaRef = React.createRef()
 
   let onClickAction = () => {
-    let text = textareaRef.current.value;
-    props.store.addPost(text);
+    props.dispatch(newPostFunctionActionCreater())
   }
 
   let onChangeFunction = () => {
     let text = textareaRef.current.value;
-    props.store.changeTextArea('1', text)
+    props.dispatch(onChangePostFunctionActionCreater(text))
   }
 
   return <div className={classes.main}>
     <img src='./../field.jpg' alt='New Post' />
     <div>
-      <textarea onChange={onChangeFunction} ref={textareaRef} value={props.store._state.postfieldData.newPostText}/>
+      <textarea onChange={onChangeFunction} ref={textareaRef} value={props.state.postfieldData.newPostText} />
       <button onClick={onClickAction}> Send </button>
     </div>
   </div>

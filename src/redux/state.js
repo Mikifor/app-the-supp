@@ -1,3 +1,6 @@
+import dialogReducer from "./dialogReducer"
+import postReducer from "./postReducer"
+
 let store = {
     _state: {
         Profile: {
@@ -71,48 +74,21 @@ let store = {
         },
     },
 
+    dispatch(action) {
+
+        this._state.postfieldData = postReducer(this._state.postfieldData, action)
+        this._state.messageFieldData = dialogReducer(this._state.messageFieldData, action)
+        this.container()
+
+    },
+
     getState() { return this._state },
 
     container() { },
 
     observer(income) {
-        debugger;
         this.container = income;
     },
-
-    addMessage() {
-        debugger;
-        let textos = this._state.messageFieldData.newMessageText;
-        let newMessage = {
-            text: textos,
-            personName: 'Фархат',
-            id: '7',
-            author: 'Farkchat'
-        }
-        this._state.messageFieldData.messagesInfo.Farkchat.push(newMessage);
-        this.changeTextArea('2', '');
-    },
-
-    addPost(props) {
-
-        let newMessage = {
-            author: 'Mikifor',
-            likeCounter: 0,
-            text: props
-        }
-
-        this._state.postfieldData.postsData.push(newMessage);
-        this.changeTextArea('1', '');
-    },
-
-    changeTextArea(index, text) {
-        debugger;
-        index === '1' ? (this._state.postfieldData.newPostText = text) :
-            (index === '2' ? (this._state.messageFieldData.newMessageText = text) : (alert('watahell')));
-        this.container();
-    }
-
 }
 
-
-export default store;
+export default store

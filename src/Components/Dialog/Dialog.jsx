@@ -1,19 +1,22 @@
-import React from 'react';
-import classes from './Dialog.module.css';
-import dialogElements from './DialogData';
-import messageElements from './messagesData';
+import React from 'react'
+import classes from './Dialog.module.css'
+import dialogElements from './DialogData'
+import messageElements from './messagesData'
+import {newMessageFunctionActionCreater, onChangeDialogFunctionActionCreater} from './../../redux/dialogReducer'
 
-const Dialogs = (props) => {
+const Dialogs = (props) => { 
+
+  
 
   let newMessage = React.createRef();
 
   let onClickAction = () => {
-    props.store.addMessage();
+    props.dispatch(newMessageFunctionActionCreater())
   }
 
   let onChangeFunction = () => {
-    let text = newMessage.current.value;
-    props.store.changeTextArea('2', text)
+    let text = newMessage.current.value
+    props.dispatch(onChangeDialogFunctionActionCreater(text))
   }
 
   return <div className={classes.main}>
@@ -28,4 +31,4 @@ const Dialogs = (props) => {
   </div>
 }
 
-export default Dialogs;
+export default Dialogs

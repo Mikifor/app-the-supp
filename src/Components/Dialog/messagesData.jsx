@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Dialog.module.css';
+import classes from './Dialog.module.css'; 
 
 const Message = (props) => {
     return <div className={(props.author === 'Farkchat') ? classes.partner_message : classes.author_message}>
