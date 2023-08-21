@@ -14,6 +14,10 @@ const Person = (props) => {
 }
 
 
-let dialogElements = (props) => { let y = props.map(dialog => (<Person name={dialog.personName} link={dialog.link} />)); return y}
+let dialogElements = (props) => {    
+    
+    let y = props.messagesInfo.map(dialog => (<Person name={dialog.dialogName} link={dialog.link} />))
+    return y
+}
 
 export default dialogElements;

@@ -8,6 +8,7 @@ const Message = (props) => {
 }
 
 let messageElements = (props) => {
-    let x = props.Farkchat.map(messageItem => (<Message message={messageItem.text} author={messageItem.author} />)); return x
+    
+    let x = props.messagesInfo[0].messages.map(messageItem => (<Message message={messageItem.text} author={messageItem.author} />)); return x
 }
 export default messageElements;

@@ -8,8 +8,6 @@ import Dialogs from './Components/Dialog/Dialog';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Programs from './Components/Programs/Programs'
 
-
-
 const App = (props) => {
 
   return (   
@@ -18,11 +16,11 @@ const App = (props) => {
       <div className="app-wrapper">
         <Header />
         <Navigation />
-        <Profile info={props.state.Profile.privateInfo} />
+        {<Profile dispatch={props.dispatch} state={props.store.profileReducer.privateInfo} />}
         <div className="app-content">
           <Routes>
-            {<Route path='/posts/*' element={<Postfield dispatch={props.dispatch} state={props.state}/> } />}
-            <Route path='/messages/*' element={<Dialogs dispatch={props.dispatch} state={props.state}/>} />
+            {<Route path='/posts/*' element={<Postfield dispatch={props.dispatch} state={props.store.postReducer}/> } />}
+            <Route path='/messages/*' element={<Dialogs dispatch={props.dispatch} state={props.store.dialogReducer}/>} />
             <Route path='/programs/*' element={<Programs/>} />
           </Routes>
           
