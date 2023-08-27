@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
-import Header from './Components/Header/Header';
-import Navigation from './Components/Navigation/Navigation';
-import Profile from './Components/Profile/Profile';
-import Postfield from './Components/Postfield/Postfield';
-import Dialogs from './Components/Dialog/Dialog';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React from 'react'
+import './App.css'
+import Header from './Components/Header/Header'
+import Navigation from './Components/Navigation/Navigation'
+import Profile from './Components/Profile/Profile'
+import Postfield from './Components/Postfield/Postfield'
+import Dialogs from './Components/Dialog/DialogContainer'
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Programs from './Components/Programs/Programs'
 
 const App = (props) => {
@@ -16,11 +16,11 @@ const App = (props) => {
       <div className="app-wrapper">
         <Header />
         <Navigation />
-        {<Profile dispatch={props.dispatch} state={props.store.profileReducer.privateInfo} />}
+        {<Profile dispatch={props.dispatch} state={props.state.profileReducer.privateInfo} />}
         <div className="app-content">
           <Routes>
-            {<Route path='/posts/*' element={<Postfield dispatch={props.dispatch} state={props.store.postReducer}/> } />}
-            <Route path='/messages/*' element={<Dialogs dispatch={props.dispatch} state={props.store.dialogReducer}/>} />
+            {<Route path='/posts/*' element={<Postfield dispatch={props.dispatch} state={props.state.postReducer}/> } />}
+            <Route path='/messages/*' element={<Dialogs dispatch={props.dispatch} state={props.state.dialogReducer}/>} />
             <Route path='/programs/*' element={<Programs/>} />
           </Routes>
           

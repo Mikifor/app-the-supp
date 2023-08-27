@@ -1,22 +1,29 @@
 .main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     text-align: left;
     padding: 10px;
     background-color: coral;
 }
 
 .active {
-    color :gold;
+    color: gold;
 }
 
-.person{
-    color:black;
+.person {
+    color: black;
 }
 
-.messagefield{
+.message {
+    border: 0.5px solid;
+    border-radius: 5px;
+    margin: 1px;
+    padding: 3px;
+}
+
+.messagefield {
     background-color: rgb(255, 173, 80);
-    padding:5px;
+    padding: 5px;
     border-radius: 4px;
 }
 
@@ -26,10 +33,10 @@
     padding: 5px;
 }
 
-.partner_message{
+.partner_message {
     text-align: left;
 }
 
-.author_message{
+.author_message {
     text-align: right;
 }

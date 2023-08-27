@@ -1,10 +1,10 @@
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import React from 'react';
-import store from './redux/redux-store';
+import './index.css'
+import reportWebVitals from './reportWebVitals'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import App from './App'
+import React from 'react'
+import store from './redux/redux-store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,7 +12,7 @@ const rerenderDOM = (state) => {
 
     root.render(
         <React.StrictMode>
-            <App dispatch={store.dispatch.bind(store)} store={store.getState()}/>
+            <App dispatch={store.dispatch.bind(store)} state={store.getState()} />
         </React.StrictMode>)
 }
 
