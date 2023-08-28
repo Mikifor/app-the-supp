@@ -10,3 +10,13 @@
 .message {
   padding: 2px; 
 }
+
+.like {
+  text-align: right;
+  grid-area: like;
+  margin-right: 15px;
+}
+
+.text {
+  text-align: center
+}

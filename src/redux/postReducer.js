@@ -8,6 +8,7 @@ export const upCounterActionCreater = (id) => ({ type: upCounter, id: id })
 
 let initialState = {
     newPostText: "Michail",
+    nextPostID: 6,
 
     postsData:
         [{ id:0, author: 'Farkchat', likeCounter: 0, text: 'Hi, Im Mikifor' },
@@ -22,6 +23,7 @@ const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case addPost:
             let newMessage = {
+                id: state.nextPostID,   
                 author: 'Mikifor',
                 likeCounter: 0,
                 text: state.newPostText
@@ -29,6 +31,7 @@ const postReducer = (state = initialState, action) => {
 
             state.postsData.push(newMessage)
             state.newPostText = ""
+            state.nextPostID++
             return state;
 
         case changePostTextArea:

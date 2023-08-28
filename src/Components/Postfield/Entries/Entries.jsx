@@ -1,19 +1,17 @@
 import React from 'react'
 import classes from './Entries.module.css'
-import {newPostFunctionActionCreater, onChangePostFunctionActionCreater} from './../../../redux/postReducer' 
-
 
 const Main = (props) => {
 
   let textareaRef = React.createRef()
 
   let onClickAction = () => {
-    props.dispatch(newPostFunctionActionCreater())
+    props.onClickAction()
   }
 
   let onChangeFunction = () => {
     let text = textareaRef.current.value;
-    props.dispatch(onChangePostFunctionActionCreater(text))
+    props.onChangeFunction(text)
   }
 
   return <div className={classes.main}>
@@ -25,4 +23,4 @@ const Main = (props) => {
   </div>
 }
 
-export default Main;
+export default Main

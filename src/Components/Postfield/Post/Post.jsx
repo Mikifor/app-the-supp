@@ -1,14 +1,31 @@
 import React from 'react';
 import classes from './Post.module.css'
-import Texts from './Text/Text.jsx'
-import Like from './Like/Like.jsx'
+
+const Texts = (props) => {
+
+
+  return <div className={classes.header}>
+    <li>{props.message}</li>
+  </div>
+}
+
+const Like = (props) => {
+  let onClickLikeFunction = () => {
+    props.onClickLikeFunction(props.id)
+  }
+
+  return <div className={classes.like}>
+    <button onClick={onClickLikeFunction} className={classes.button}>Like</button>
+    {props.counter}
+  </div>
+}
 
 const Post = (props) => {
 
   return (
     <div className={classes.post} id={props.id}>
-      <div className={classes.message}><Texts message={props.text} /></div>
-      <div className={classes.like}><Like counter={props.counter} dispatch={props.dispatch} id={props.id}/></div>
+      <div><Texts message={props.text} /></div>
+      <div><Like counter={props.counter} id={props.id} onClickLikeFunction={props.onClickLikeFunction} /></div>
     </div>)
 }
 
