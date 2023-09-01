@@ -4,6 +4,7 @@ import Post from './Post/Post'
 import Entries from './Entries/Entries'
 
 let postElements = (props) => {
+  debugger
   let x = props.state.postsData.map(postItem => (<Post text={postItem.text} counter={postItem.likeCounter} id={postItem.id} onClickLikeFunction={props.onClickLikeFunction} />));
   return x
 }
@@ -16,4 +17,4 @@ const Postfield = (props) => {
 
 }
 
-export default Postfield
+export default Postfield 

@@ -12,7 +12,7 @@ let initialState = {
         {
             dialogName: "Фархат",
             link: "Farckhat",
-            dialogIndex:"0",
+            dialogIndex: "0",
             messages:
                 [{ text: 'Whatsup man?', id: '', author: 'Farkchat' },
                 { text: 'Farchat, the bomb has been planted', id: '', author: 'Mikifor' },
@@ -21,22 +21,20 @@ let initialState = {
                 { text: 'Take the ordert to nuke!', id: '', author: 'Farkchat' },
                 { text: 'Affirmative!', id: '', author: 'Mikifor' }]
         },
-
         {
             dialogName: "Марат",
             link: "Marat",
-            dialogIndex:"1",
+            dialogIndex: "1",
             messages:
                 [{ text: 'Hi man', id: '', author: 'Marat' },
                 { text: 'Hi', id: '', author: 'Mikifor' },
                 { text: 'HBTU', id: '', author: 'Marat' },
                 { text: 'thx', id: '', author: 'Mikifor' }]
         },
-
         {
             dialogName: "Ксения",
             link: "Kseniya",
-            dialogIndex:"2",
+            dialogIndex: "2",
             messages:
                 [{ text: 'Hello, Kseny', id: '', author: 'Marat' },
                 { text: 'Hello, Mik, lovely day, isnt it?', id: '', author: 'Mikifor' },
@@ -44,35 +42,31 @@ let initialState = {
                 { text: 'Yes, it says it will be a bit cloudy in the morning. But the day will be bright and sunny.', id: '', author: 'Mikifor' },
                 { text: 'How nice. A perfect day for an outing. I promised my family a barbecue, you know.', id: '', author: 'Marat' },
                 { text: 'Great! I hope you will enjoy it.', id: '', author: 'Marat' }]
-                
         },
-
         {
             dialogName: "Аполинария",
             link: "Apolynaria",
-            dialogIndex:"3",
+            dialogIndex: "3",
             messages:
                 [{ text: 'Hi man', id: '', author: 'Marat' },
                 { text: 'Hi', id: '', author: 'Mikifor' },
                 { text: 'HBTU', id: '', author: 'Marat' },
                 { text: 'thx', id: '', author: 'Mikifor' }],
         },
-
         {
             dialogName: "Деметрий",
             link: "Demetry",
-            dialogIndex:"4",
+            dialogIndex: "4",
             messages:
                 [{ text: 'Hi man', id: '', author: 'Marat' },
                 { text: 'Hi', id: '', author: 'Mikifor' },
                 { text: 'HBTU', id: '', author: 'Marat' },
                 { text: 'thx', id: '', author: 'Mikifor' }],
         },
-
         {
             dialogName: "Родион",
             link: "Rodion",
-            dialogIndex:"5",
+            dialogIndex: "5",
             messages:
                 [{ text: 'Привет, Родион ', id: '', author: 'Mikifor' },
                 { text: 'Даров', id: '', author: 'Rodion' },
@@ -86,7 +80,6 @@ let initialState = {
 }
 
 const dialogReducer = (state = initialState, action) => {
-    
 
     switch (action.type) {
 

@@ -1,20 +1,19 @@
-import React from 'react'
 import Dialogs from './Dialog'
 import { newMessageFunctionActionCreater, onChangeDialogFunctionActionCreater } from '../../redux/dialogReducer'
+import { connect } from 'react-redux'
 
-const DialogsContainer = (props) => {
-
-  let onClickAction = () => {
-    props.dispatch(newMessageFunctionActionCreater())
+let mapStateToProps = (state) => {
+  return {
+    state: state.dialogReducer
   }
-
-  let onChangeFunction = (text) => {
-    props.dispatch(onChangeDialogFunctionActionCreater(text))
-  }
-
-  return <div>
-    <Dialogs onChangeFunction={onChangeFunction} onClickAction={onClickAction} state={props.state} />
-  </div>
 }
+let mapDispatchToProps = (dispatch) => {
+  return {
+    onClickAction: () => {
+      dispatch(newMessageFunctionActionCreater())},
+    onChangeFunction: (text) => {dispatch(onChangeDialogFunctionActionCreater(text))}
+  }
+}
+const SuperDialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
-export default DialogsContainer
+export default SuperDialogContainer

@@ -1,21 +1,21 @@
-import React from 'react'
 import Postfield from './Postfield'
 import { newPostFunctionActionCreater, onChangePostFunctionActionCreater, upCounterActionCreater } from './../../redux/postReducer'
+import { connect } from "react-redux"
 
-const PostfieldContainer = (props) => {
-
-  let onClickAction = () => {
-    props.dispatch(newPostFunctionActionCreater())
+let mapStateToProps = (state) => {
+  return {
+    state: state.postReducer
   }
-
-  let onClickLikeFunction = (id) => {
-    props.dispatch(upCounterActionCreater(id))
+}
+let mapDispatchToProps = (dispatch) => {
+  return {
+    onClickAction: () => { dispatch(newPostFunctionActionCreater()) },
+    onClickLikeFunction: (id) => { dispatch(upCounterActionCreater(id)) },
+    onChangeFunction: (text) => { dispatch(onChangePostFunctionActionCreater(text)) }
   }
-
-  let onChangeFunction = (text) => {
-    props.dispatch(onChangePostFunctionActionCreater(text))
-  }
-  return <div> <Postfield state={props.state} onChangeFunction={onChangeFunction} onClickAction={onClickAction} onClickLikeFunction={onClickLikeFunction} /> </div>
 }
 
-export default PostfieldContainer;
+
+const PostfieldContainer = connect(mapStateToProps, mapDispatchToProps)(Postfield)
+
+export default PostfieldContainer
