@@ -8,7 +8,7 @@ const Message = (props) => {
 }
 
 let MessageElements = (props) => {
-    let x = props.state.messagesInfo[props.dialogNumber].messages.map(messageItem => (<Message message={messageItem.text} author={messageItem.author} />))
+    let x = props.state.messagesInfo[props.dialogNumber].messages.map(messageItem => (<Message message={messageItem.text} author={messageItem.author} key={messageItem.id}/>))
     props.state.currentDialogIndex = props.state.messagesInfo[props.dialogNumber].dialogIndex
     return <div> {x} </div>
 }

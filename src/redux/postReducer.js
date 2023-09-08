@@ -11,38 +11,48 @@ let initialState = {
     nextPostID: 6,
 
     postsData:
-        [{ id:0, author: 'Farkchat', likeCounter: 0, text: 'Hi, Im Mikifor' },
-        { id:1, author: 'Marat', likeCounter: 2, text: 'The second post' },
-        { id:2, author: 'Kseniya', likeCounter: 7, text: 'Farchat, the bomb has been planted' },
-        { id:3, author: 'Apolinariya', likeCounter: 3, text: 'Cake is lie' },
-        { id:4, author: 'Demetry', likeCounter: 5, text: 'Auuuuf' },
-        { id:5, author: 'Rodion', likeCounter: 12, text: 'Wolfensprundenburdenbark' }]
+        [{ id: 10, author: 'Farkchat', likeCounter: 0, text: 'Hi, Im Mikifor' },
+        { id: 11, author: 'Marat', likeCounter: 2, text: 'The second post' },
+        { id: 12, author: 'Kseniya', likeCounter: 7, text: 'Farchat, the bomb has been planted' },
+        { id: 13, author: 'Apolinariya', likeCounter: 3, text: 'Cake is lie' },
+        { id: 14, author: 'Demetry', likeCounter: 5, text: 'Auuuuf' },
+        { id: 15, author: 'Rodion', likeCounter: 12, text: 'Wolfensprundenburdenbark' }]
 }
 
 const postReducer = (state = initialState, action) => {
+    debugger
     switch (action.type) {
-        case addPost:
+        case addPost: {
             let newMessage = {
-                id: state.nextPostID,   
+                id: state.nextPostID,
                 author: 'Mikifor',
                 likeCounter: 0,
                 text: state.newPostText
             }
 
-            state.postsData.push(newMessage)
-            state.newPostText = ""
-            state.nextPostID++
-            return state;
+            return {
+                ...state,
+                postsData: [...state.postsData, newMessage],
+                newPostText: "",
+                nextPostID: ++state.nextPostID
+            }
+        }
 
-        case changePostTextArea:
-            state.newPostText = action.text
-            console.log(action)
-            return state;
+        case changePostTextArea: {
+            return {
+                ...state,
+                newPostText: action.text
+            }
+        }
 
-        case upCounter:
-            state.postsData.forEach(element => {if (element.id === action.id) {element.likeCounter++}} )
-            console.log(action.id)
-            return state;
+        case upCounter: {
+            let copyState = {
+                ...state,
+               //postsData: [...state.postsData]
+            }
+            copyState.postsData.forEach(element => { if (element.id === action.id) { element.likeCounter++ } })
+            return copyState
+        }
 
         default: return state
     }

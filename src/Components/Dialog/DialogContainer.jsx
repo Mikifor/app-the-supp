@@ -9,9 +9,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    onClickAction: () => {
-      dispatch(newMessageFunctionActionCreater())},
-    onChangeFunction: (text) => {dispatch(onChangeDialogFunctionActionCreater(text))}
+    onClickAction: () => { dispatch(newMessageFunctionActionCreater()) },
+    onChangeFunction: (text) => { dispatch(onChangeDialogFunctionActionCreater(text)) }
   }
 }
 const SuperDialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)

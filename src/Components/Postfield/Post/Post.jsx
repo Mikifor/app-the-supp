@@ -1,9 +1,7 @@
-import React from 'react';
+import React from 'react'
 import classes from './Post.module.css'
 
 const Texts = (props) => {
-
-
   return <div className={classes.header}>
     <li>{props.message}</li>
   </div>
@@ -23,10 +21,10 @@ const Like = (props) => {
 const Post = (props) => {
 
   return (
-    <div className={classes.post} id={props.id}>
+    <div className={classes.post} key={props.id}>
       <div><Texts message={props.text} /></div>
-      <div><Like counter={props.counter} id={props.id} onClickLikeFunction={props.onClickLikeFunction} /></div>
+      <div><Like counter={props.counter} onClickLikeFunction={props.onClickLikeFunction} id={props.id} /></div>
     </div>)
 }
 
-export default Post;
+export default Post
