@@ -20,7 +20,6 @@ let initialState = {
 }
 
 const postReducer = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case addPost: {
             let newMessage = {

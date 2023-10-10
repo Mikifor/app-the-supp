@@ -4,9 +4,7 @@ import classes from './Dialog.module.css'
 
 const Person = (props) => {
     return <div>        
-        <NavLink to={props.link} className={classes.person}>
-            {props.name}
-        </NavLink>
+        <NavLink to={props.link} className={classes.person}>{props.name}</NavLink>
     </div>
 }
 

@@ -13,6 +13,7 @@ const Dialogs = (props) => {
   }
 
   let onChangeFunction = () => {
+    debugger
     let text = newMessage.current.value
     props.onChangeFunction(text)
   }
