@@ -1,8 +1,9 @@
 .navigation {
   text-align: center;
   grid-area: navigation;
-  background-color: lightblue;
+  background-color: #9a3232;
   padding: 10px;
+  border: solid;
 }
 
 .item {
@@ -11,4 +12,23 @@
 
 .active {
   color:black;
+}
+
+.navigation button {
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: black;
+  background-color: grey;
+  padding: 5px 8px;
+  margin: 3px;
+  font-size: 13px;
+  width: 7em;
+  transition-duration: 0.15s;
+  height: 2.3em;
+}
+
+.navigation button:hover {
+  background-color: white;
+  font-size: 12px;
 }

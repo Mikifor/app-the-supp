@@ -1,11 +1,14 @@
 import React from 'react'
 import classes from './Profile.module.css'
 import { connect } from "react-redux"
+import Avatar from "../../mainAvatar.jpg"
 
 const Profile = (props) => {
   return <div className={classes.main}>
-    <img src='./../../field.svg' alt='Avatar' />
-    <div>
+    <div className={classes.avatarDiv}>
+      <img className={classes.avatar} src={Avatar} alt='Avatar' />
+    </div>
+    <div className={classes.info}>
       <ul>
         <li className={classes.Item}>Name: {props.state.name}</li>
         <li className={classes.Item}>Age: {props.state.age}</li>

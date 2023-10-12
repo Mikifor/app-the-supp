@@ -2,11 +2,12 @@ import React from 'react'
 import classes from './Programs.module.css'
 import { NavLink, Routes, Route } from 'react-router-dom'
 import Palindrome from './palindrome'
+import Buttons from './buttons'
 
 
 let programButtonsInfo = [
   { link: "palindrome", text: 'Проверка на палиндромность', id: 21 },
-  { link: 'posts', text: 'Posts', id: 22 }]
+  { link: 'buttons', text: 'Кнопки', id: 22 }]
 
 let programButtons = programButtonsInfo.map(button => (<NavLink key={button.id} to={button.link} className={navData => navData.isActive ? classes.active : classes.item}><div>{button.text}</div></NavLink>))
 
@@ -25,12 +26,13 @@ const ProgramField = (props) => {
   return <div className={classes.programmField}>
     <Routes>
       <Route path="/palindrome/*" element={<Palindrome onChangeFunction={props.props.onChangeFunction} onClickFunction={props.props.onClickFunction} isPalindrome={props.props.isPalindrome  }/>} />
+      <Route path="/buttons/*" element={<Buttons />} />
     </Routes>
   </div>
 }
 
 const Programs = (props) => {
-  return <div>
+  return <div className={classes.main}>
     <ProgramNavigation />
     <ProgramField props={props}/>
   </div>

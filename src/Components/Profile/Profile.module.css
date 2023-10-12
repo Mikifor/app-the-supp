@@ -1,9 +1,33 @@
 .main {
+    border: solid;
     text-align: left;
     grid-area: profile;
-    background-color:lightgrey;
+    background-color:#9a3232;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "avatar info";
 }
 
 .Item {
-    color:black
+    font: Arial 1.2rem "Fira Sans", serif;
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke: 1px #000000;
 }
+
+.avatarDiv {
+    margin: auto
+}
+
+.avatar {
+    border: solid;
+    border-radius: 10px;
+    height: 100px;
+    object-fit: cover;
+    grid-area: avatar;
+}
+
+.info {
+
+    grid-area: info;}

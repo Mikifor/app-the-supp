@@ -26,9 +26,44 @@ class Users extends React.Component {
             pages.push(i)
         }
 
+        let currentShowedPages = []
+
+        if (pages.length > 4) {
+            currentShowedPages = []
+            currentShowedPages.push(1)
+            currentShowedPages.push(this.props.currentPage - 1)
+            currentShowedPages.push(this.props.currentPage)
+            currentShowedPages.push(this.props.currentPage + 1)
+            currentShowedPages.push(pagesCount)
+
+
+            for (let i = 0; i < 5; i++) {
+                if (currentShowedPages[i] === 0) {
+                    currentShowedPages.splice(i, 1)
+                }
+                if (currentShowedPages[i] === (pagesCount + 1)) {
+                    currentShowedPages.splice(i, 1)
+                }
+            }
+
+            for (let i = 1; i < 5; i++) {
+                if (currentShowedPages[i] === 1) {
+                    currentShowedPages.splice(i, 1)
+                }
+            }
+
+
+            for (let i = 0; i < 4; i++) {
+                if (currentShowedPages[i] === (pagesCount)) {
+                    currentShowedPages.splice(i, 1)
+                }
+            }
+            console.log(currentShowedPages)
+        }
+
         return <div ><button onClick={this.getUsers}>Кнопка</button>
             <div>
-                {pages.map(p => { return <span key={p} onClick={(e) => { this.buttonPageOnClick(p) }} className={this.props.currentPage === p && classes.selectedPage}>{p}</span> })}
+                {currentShowedPages.map(p => { return <span key={p} onClick={(e) => { this.buttonPageOnClick(p) }} className={this.props.currentPage === p && classes.selectedPage}>{p}</span> })}
             </div>
 
             {this.props.users.map(u =>
@@ -55,4 +90,5 @@ class Users extends React.Component {
         </div>
     }
 }
+
 export default Users

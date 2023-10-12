@@ -1,5 +1,6 @@
 .header {
     text-align: center;
     grid-area: header;
-    background-color: mediumseagreen;
+    background-color: #9a3232;
+    border: solid
   }

@@ -2,7 +2,8 @@ ul li {
   list-style-type: georgian;
 }
 
-.app-wrapper {
+.app_wrapper {
+
   margin: 0 auto;
   width: 800px;
   display: grid;
@@ -15,8 +16,14 @@ ul li {
     "navigation content"
 }
 
-.app-content {
+.app_content {
   text-align: center;
   background-color:coral;
   grid-area: content;
+}
+
+.app_background {
+  margin-top: 70px;
+  padding: 2em;
+  background-color: rgb(128, 128, 128);
 }
