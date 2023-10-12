@@ -4,6 +4,7 @@
     text-align: left;
     padding: 10px;
     background-color: coral;
+    border: solid;
 }
 
 .active {

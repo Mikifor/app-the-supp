@@ -1,4 +1,5 @@
 import React from 'react'
+import classes from './Admin.module.css'
 //import axios from 'axios'
 
 const Admin = (props) => {
@@ -7,7 +8,7 @@ const Admin = (props) => {
 
     let adminAction = () => {console.log(props)}
 
-    return <div >{
+    return <div className={classes.main} >{
         <button onClick={adminAction}>Action</button>
     }
     </div>

@@ -7,7 +7,10 @@ import Buttons from './buttons'
 
 let programButtonsInfo = [
   { link: "palindrome", text: 'Проверка на палиндромность', id: 21 },
-  { link: 'buttons', text: 'Кнопки', id: 22 }]
+  { link: 'buttons', text: 'Кнопки', id: 22 },
+  { link: 'app-3', text: 'Приложение 3', id: 22 },
+  { link: 'app-4', text: 'Приложение 3', id: 22 },
+]
 
 let programButtons = programButtonsInfo.map(button => (<NavLink key={button.id} to={button.link} className={navData => navData.isActive ? classes.active : classes.item}><div>{button.text}</div></NavLink>))
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Users from './Users'
+import Users from './UsersAPIComponent'
 import { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC } from '../../redux/usersreducer'
 
 
