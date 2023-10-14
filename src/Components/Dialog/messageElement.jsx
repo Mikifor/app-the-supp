@@ -12,5 +12,5 @@ let MessageElements = (props) => {
     props.state.currentDialogIndex = props.state.messagesInfo[props.dialogNumber].dialogIndex
     return <div> {x} </div>
 }
-export default MessageElements;
+export default MessageElements
  
