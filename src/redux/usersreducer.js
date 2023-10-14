@@ -3,12 +3,14 @@ const UNFOLLOW = "UNFOLLOW"
 const SETUSERS = "SETUSERS"
 const SETCURRENTPAGE = "SETCURRENTPAGE"
 const SETUSERSTOTALCOUNT = "SETUSERSTOTALCOUNT"
+const SWITCHFETCHING = "SWITCHFETCHING"
 
 let initialState = {
     users: [],
     pagesize:5,
     totalUsersCount: 10,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -20,7 +22,6 @@ const usersReducer = (state = initialState, action) => {
                 if (u.id === action.userID) { return { ...u, follower: true } } return u
             })
         }
-
 
         case UNFOLLOW: return {
             ...state,
@@ -42,6 +43,10 @@ const usersReducer = (state = initialState, action) => {
             return { ...state, totalUsersCount: action.num }
         }
 
+        case SWITCHFETCHING: {
+            return { ...state, isFetching: !state.isFetching } 
+        }
+
         default: return state
     }
 
@@ -53,6 +58,7 @@ export const unfollowAC = (userID) => ({ type: UNFOLLOW, userID })
 export const setUsersAC = (users) => ({ type: SETUSERS, users })
 export const setPageAC = (currentPage) => ({ type: SETCURRENTPAGE, currentPage })
 export const setUsersTotalCountAC = (num) => ({ type: SETUSERSTOTALCOUNT, num })
+export const switchFetchingAC = () => ({ type: SWITCHFETCHING })
 
 
 

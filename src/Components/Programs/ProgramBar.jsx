@@ -28,7 +28,7 @@ const ProgramNavigation = () => {
 const ProgramField = (props) => {
   return <div className={classes.programmField}>
     <Routes>
-      <Route path="/palindrome/*" element={<Palindrome onChangeFunction={props.props.onChangeFunction} onClickFunction={props.props.onClickFunction} isPalindrome={props.props.isPalindrome  }/>} />
+      <Route path="/palindrome/*" element={<Palindrome onChangeFunction={props.onChangeFunction} onClickFunction={props.onClickFunction} isPalindrome={props.isPalindrome}/>} />
       <Route path="/buttons/*" element={<Buttons />} />
     </Routes>
   </div>
@@ -37,7 +37,7 @@ const ProgramField = (props) => {
 const Programs = (props) => {
   return <div className={classes.main}>
     <ProgramNavigation />
-    <ProgramField props={props}/>
+    <ProgramField {...props}/>
   </div>
 }
 

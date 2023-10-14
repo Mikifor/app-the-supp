@@ -16,8 +16,8 @@ let Users = (props) => {
                     </div>
                     <div>
                         {u.follower
-                            ? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-                            : <button onClick={() => { props.follow(u.id) }}>Follow</button>}
+                            ? <button onClick={() => { props.unfollowAC(u.id) }}>Unfollow</button>
+                            : <button onClick={() => { props.followAC(u.id) }}>Follow</button>}
                     </div>
                 </span>
                 <span>

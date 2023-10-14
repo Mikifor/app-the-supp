@@ -6,7 +6,6 @@ import {onChangeFunctionAC, onClickPalindromeAC} from '../../redux/programReduce
 let mapStateToProps = (state) => {
   debugger
   return {
-    
     state: state.programReducer,
     isPalindrome: state.programReducer.isPalindrome
   }
