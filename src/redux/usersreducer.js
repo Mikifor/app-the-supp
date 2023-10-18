@@ -4,6 +4,9 @@ const SETUSERS = "SETUSERS"
 const SETCURRENTPAGE = "SETCURRENTPAGE"
 const SETUSERSTOTALCOUNT = "SETUSERSTOTALCOUNT"
 const SWITCHFETCHING = "SWITCHFETCHING"
+const SETPROFILE = "SETPROFILE"
+
+
 
 let initialState = {
     users: [],
@@ -11,6 +14,7 @@ let initialState = {
     totalUsersCount: 10,
     currentPage: 1,
     isFetching: false,
+    profile: [],
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -47,9 +51,13 @@ const usersReducer = (state = initialState, action) => {
             return { ...state, isFetching: !state.isFetching } 
         }
 
+        case SETPROFILE: {
+            debugger
+            return { ...state, profile: action.profile}
+        }
+
         default: return state
     }
-
 
 }
 
@@ -59,8 +67,6 @@ export const setUsersAC = (users) => ({ type: SETUSERS, users })
 export const setPageAC = (currentPage) => ({ type: SETCURRENTPAGE, currentPage })
 export const setUsersTotalCountAC = (num) => ({ type: SETUSERSTOTALCOUNT, num })
 export const switchFetchingAC = () => ({ type: SWITCHFETCHING })
-
-
-
+export const setProfileAC = (profile) => ({ type: SETPROFILE, profile })
 
 export default usersReducer

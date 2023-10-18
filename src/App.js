@@ -17,7 +17,7 @@ const App = (props) => {
         <div className={classes.app_wrapper}>
           <Header />
           <Navigation />
-          {<ProfileContainer />}
+          <ProfileContainer />
           <div className={classes.app_content}>
             <Routes>
               <Route path='/posts/*' element={<PostfieldContainer />} />
@@ -32,4 +32,4 @@ const App = (props) => {
     </BrowserRouter>
   )
 }
-export default App;
+export default App
