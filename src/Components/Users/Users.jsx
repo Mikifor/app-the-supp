@@ -37,7 +37,7 @@ let Users = (props) => {
                 <span>
                     <span>
                         <div>{u.name}</div>
-                        <div>Статус: {u.status}</div>gi
+                        <div>Статус: {u.status}</div>
                     </span>
                 </span>
             </div>)}
