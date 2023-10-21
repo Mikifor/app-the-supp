@@ -17,7 +17,7 @@ ul li {
 
 .app_content {
   text-align: center;
-  background-color:coral;
+  background-color:rgba(221, 225, 0, 0.534);
   grid-area: content;
 }
 

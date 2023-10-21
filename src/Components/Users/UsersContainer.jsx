@@ -4,12 +4,16 @@ import UsersAPIComponent from './UsersAPIComponent'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import CertainProfile from './CertainProfile/CertainProfileContainer'
 
+
+
+
+
 let UserNavigationPage = (props) => {
     return <div>
         <NavLink to={'usearch'}><button>Кнопка</button></NavLink>
         <Routes>
             <Route path='/usearch' element={<UsersAPIComponent {...props} />} />
-            <Route path='profile/*' element={<CertainProfile {...props}/>} />
+            <Route path='profile/:userID' element={<CertainProfile {...props}/>} />
         </Routes>
     </div>
 }
@@ -24,5 +28,6 @@ let mapStateToProps = (state) => {
         profile: state.usersPage.profile
     }
 }
+
 
 export default connect (mapStateToProps, { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchFetchingAC, setProfileAC })(UserNavigationPage)

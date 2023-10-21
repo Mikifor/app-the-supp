@@ -18,6 +18,7 @@ let initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
+    
     switch (action.type) {
         case FOLLOW: return {
             ...state,
@@ -52,7 +53,6 @@ const usersReducer = (state = initialState, action) => {
         }
 
         case SETPROFILE: {
-            debugger
             return { ...state, profile: action.profile}
         }
 
