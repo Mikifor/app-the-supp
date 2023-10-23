@@ -7,7 +7,7 @@ let initialState = {
     { link: 'Rodion', personName: 'Родион' }],
 
     privateInfo: {
-        name: 'Mikifor', age: 27, languages: 'Ru, Eng, JS'
+        name: 'Mikifor', age: 27, languages: 'Ru, Eng, JS', tools: 'React, axios'
     }
 }
 
