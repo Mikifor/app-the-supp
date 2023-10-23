@@ -7,7 +7,7 @@ export const newPostFunctionActionCreater = () => ({ type: addPost })
 export const upCounterActionCreater = (id) => ({ type: upCounter, id: id })
 
 let initialState = {
-    newPostText: "Michail",
+    newPostText: "",
     nextPostID: 6,
 
     postsData:

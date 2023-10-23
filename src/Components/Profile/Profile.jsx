@@ -1,6 +1,5 @@
 import React from 'react'
 import classes from './Profile.module.css'
-import { connect } from "react-redux"
 import Avatar from "../../mainAvatar.jpg"
 
 const Profile = (props) => {
@@ -10,26 +9,13 @@ const Profile = (props) => {
     </div>
     <div className={classes.info}>
       <ul>
-        <li className={classes.Item}>Name: {props.state.name}</li>
-        <li className={classes.Item}>Age: {props.state.age}</li>
-        <li className={classes.Item}>Language: {props.state.languages}</li>
+        <li className={classes.Item}>Name: {props.state.privateInfo.name}</li>
+        <li className={classes.Item}>Age: {props.state.privateInfo.age}</li>
+        <li className={classes.Item}>Language: {props.state.privateInfo.languages}</li>
+        <li className={classes.Item}>Tools: {props.state.privateInfo.tools}</li>
       </ul>
     </div>
   </div>
 }
 
-let mapStateToProps = (state) => {
-  return {
-    state: state.profileReducer
-
-  }
-}
-let mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-}
-
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile)
-
-export default ProfileContainer
+export default Profile

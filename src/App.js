@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './App.module.css'
 import Header from './Components/Header/Header'
 import Navigation from './Components/Navigation/Navigation'
-import ProfileContainer from './Components/Profile/Profile'
+import ProfileContainer from './Components/Profile/ProfileContainer'
 import PostfieldContainer from './Components/Postfield/PostfieldContainer'
 import DialogContainer from './Components/Dialog/DialogContainer'
 import { BrowserRouter, Route, Routes } from "react-router-dom"

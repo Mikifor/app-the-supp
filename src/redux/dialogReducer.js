@@ -5,7 +5,7 @@ export const onChangeDialogFunctionActionCreater = (text) => ({ type: changeDial
 export const newMessageFunctionActionCreater = () => ({ type: addMessage })
 
 let initialState = {
-    newMessageText: "Perseverance",
+    newMessageText: "",
     currentDialogIndex: "0",
 
     messagesInfo: [
