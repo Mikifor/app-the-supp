@@ -7,7 +7,8 @@
 }
 
 .item {
-  color: whitesmoke
+  color: whitesmoke;
+  text-decoration: none
 }
 
 .active {
@@ -26,9 +27,14 @@
   width: 7em;
   transition-duration: 0.15s;
   height: 2.3em;
+  font-weight: 100;
 }
 
 .navigation button:hover {
   background-color: white;
-  font-size: 12px;
+  transform: scale(1.05);
+}
+
+.navigation button:hover .item {
+  color: black;
 }

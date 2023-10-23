@@ -3,8 +3,6 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 
 let CertainProfile = (props) => {
-    
-    let x = {...props}
 
     useEffect(() => {
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${props.router.params.userID}`).then(response => {
@@ -13,7 +11,7 @@ let CertainProfile = (props) => {
             console.log(response.data)
         })
        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [x] )
+    }, [] )
 
     return <div>
         {props.isFetching ? <Preloader /> : <div>

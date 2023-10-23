@@ -9,8 +9,6 @@ let Users = (props) => {
         props.switchFetchingAC()
     }
 
-
-
     return <div className={classes.main}>
         <div>
             {props.currentShowedPages.map(p => { return <span key={p} onClick={(e) => { props.buttonPageOnClick(p) }} className={props.currentPage === p && classes.selectedPage}>{p}</span> })}

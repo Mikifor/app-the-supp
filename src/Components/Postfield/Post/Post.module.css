@@ -3,8 +3,6 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 7fr 1fr;
-  border: 2px;
-  border-color: black;
 }
 
 .message {
