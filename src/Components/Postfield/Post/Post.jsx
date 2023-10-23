@@ -13,8 +13,7 @@ const Like = (props) => {
   }
 
   return <div className={classes.like}>
-    <button onClick={onClickLikeFunction} className={classes.button}>Like</button>
-    {props.counter}
+    <button onClick={onClickLikeFunction} className={classes.button}>{'\u2665'+props.counter}</button>
   </div>
 }
 

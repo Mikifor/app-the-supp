@@ -11,12 +11,12 @@ let initialState = {
     nextPostID: 6,
 
     postsData:
-        [{ id: 10, author: 'Farkchat', likeCounter: 0, text: 'Hi, Im Mikifor' },
-        { id: 11, author: 'Marat', likeCounter: 2, text: 'The second post' },
-        { id: 12, author: 'Kseniya', likeCounter: 7, text: 'Farchat, the bomb has been planted' },
-        { id: 13, author: 'Apolinariya', likeCounter: 3, text: 'Cake is lie' },
-        { id: 14, author: 'Demetry', likeCounter: 5, text: 'Auuuuf' },
-        { id: 15, author: 'Rodion', likeCounter: 12, text: 'Wolfensprundenburdenbark' }]
+        [{ id: 10, author: 'Mikifor', likeCounter: 0, date: '01.08.2023', text: `Hi, Im Mikifor. Here will be some info about my pet-project's updates` },
+        { id: 11, author: 'Mikifor', likeCounter: 2, date: '09.08.2023', text: 'PostReducer and DialogReducer was added at project. Reducers help to manage store - main info of the app' },
+        { id: 12, author: 'Mikifor', likeCounter: 7, date: '', text: 'Farchat, the bomb has been planted' },
+        { id: 13, author: 'Mikifor', likeCounter: 3, date: '', text: 'Cake is lie' },
+        { id: 14, author: 'Mikifor', likeCounter: 5, date: '', text: 'Auuuuf' },
+        { id: 15, author: 'Mikifor', likeCounter: 12, date: '', text: 'Wolfensprundenburdenbark' }]
 }
 
 const postReducer = (state = initialState, action) => {

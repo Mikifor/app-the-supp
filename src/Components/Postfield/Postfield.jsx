@@ -4,7 +4,13 @@ import Post from './Post/Post'
 import Entries from './Entries/Entries'
 
 let postElements = (props) => {
-  let x = props.state.postsData.map(postItem => (<Post text={postItem.text} counter={postItem.likeCounter} key={postItem.id} id={postItem.id} onClickLikeFunction={props.onClickLikeFunction} />));
+  let x = props.state.postsData.map(postItem =>
+  (<div className={classes.post}>
+    <Post 
+      text={postItem.text} counter={postItem.likeCounter}
+      key={postItem.id} id={postItem.id}
+      onClickLikeFunction={props.onClickLikeFunction} />
+  </div>));
   return x
 }
 
