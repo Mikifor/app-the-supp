@@ -15,9 +15,15 @@ let CertainProfile = (props) => {
 
     return <div>
         {props.isFetching ? <Preloader /> : <div>
-                <div>{"Name: " + props.profile.fullName}</div>
+                <div>{"Имя: " + props.profile.fullName}</div>
                 <div>{"ID: " + props.profile.userId}</div>
-                <div>{props.profile.photos.small ? <img src={props.profile.photos.small} alt="Avatar" /> : "nofoto"}</div> 
+                <div>{props.profile.photos.small ? <img src={props.profile.photos.small} alt="Avatar" /> : "nofoto"}</div>
+                <div>{"Контакты"}</div>
+                <div>{"VK: " + props.profile.contacts.vk}</div>
+                <div>{"GitHub: " + props.profile.contacts.github}</div> 
+                <div>{"Instagram: " + props.profile.contacts.instagram}</div>
+                <div>{"Facebook: " + props.profile.contacts.facebook}</div>
+                <div>{"Личный сайт: " + props.profile.contacts.website}</div> 
             </div> }
     </div>
 }

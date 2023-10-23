@@ -13,6 +13,7 @@ const Profile = (props) => {
         <li className={classes.Item}>Age: {props.state.privateInfo.age}</li>
         <li className={classes.Item}>Language: {props.state.privateInfo.languages}</li>
         <li className={classes.Item}>Tools: {props.state.privateInfo.tools}</li>
+        <li className={classes.Item}>VK: {props.state.privateInfo.vk}</li>
       </ul>
     </div>
   </div>
