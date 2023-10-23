@@ -15,9 +15,8 @@ const Main = (props) => {
   }
 
   return <div className={classes.main}>
-    <img src='./../field.jpg' alt='New Post' />
     <div>
-      <textarea onChange={onChangeFunction} ref={textareaRef} value={props.state.newPostText} />
+      <textarea className={classes.import} onChange={onChangeFunction} ref={textareaRef} value={props.state.newPostText} />
       <button onClick={onClickAction}> Send </button>
     </div>
   </div>

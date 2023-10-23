@@ -6,3 +6,7 @@ main img {
     text-align: left;
     grid-area: entries;
 }
+
+.import {
+    margin: 3px
+}

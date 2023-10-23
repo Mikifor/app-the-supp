@@ -18,3 +18,14 @@
     border: solid
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.triangleLink {
+    text-decoration: none;
+    color: black;
+}
+
+
