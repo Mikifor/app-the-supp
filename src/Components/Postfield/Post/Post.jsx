@@ -13,7 +13,8 @@ const Like = (props) => {
   }
 
   return <div className={classes.like}>
-    <button onClick={onClickLikeFunction} className={classes.button}>{'\u2661'+props.counter}</button>
+    <div><button onClick={onClickLikeFunction} className={classes.button}>{'\u2661'+props.counter}</button></div>
+    <div className={classes.date}>{props.date}</div>
   </div>
 }
 
@@ -22,7 +23,7 @@ const Post = (props) => {
   return (
     <div className={classes.post} key={props.id}>
       <div><Texts message={props.text} /></div>
-      <div><Like counter={props.counter} onClickLikeFunction={props.onClickLikeFunction} id={props.id} /></div>
+      <div><Like counter={props.counter} onClickLikeFunction={props.onClickLikeFunction} id={props.id} date={props.date}/></div>
     </div>)
 }
 

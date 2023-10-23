@@ -18,3 +18,9 @@
 .text {
   text-align: center
 }
+
+.date {
+  color:rgb(2, 58, 39);
+  font-size: 0.7rem;
+  text-align: bottom;
+}

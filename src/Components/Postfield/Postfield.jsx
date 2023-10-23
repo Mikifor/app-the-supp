@@ -9,7 +9,8 @@ let postElements = (props) => {
     <Post 
       text={postItem.text} counter={postItem.likeCounter}
       key={postItem.id} id={postItem.id}
-      onClickLikeFunction={props.onClickLikeFunction} />
+      onClickLikeFunction={props.onClickLikeFunction} 
+      date={postItem.date} />
   </div>));
   return x
 }
