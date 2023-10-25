@@ -14,12 +14,13 @@ class UsersAPIComponent extends React.Component {
     }
 
     buttonPageOnClick = (p) => {
-        this.props.switchFetchingAC()
+        debugger
+        this.props.switchUsersFetchingAC()
         this.props.setPageAC(p)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pagesize}`).then
             (response => {
                 this.props.setUsersAC(response.data.items)
-                this.props.switchFetchingAC()
+                this.props.switchUsersFetchingAC()
             })
     }
 

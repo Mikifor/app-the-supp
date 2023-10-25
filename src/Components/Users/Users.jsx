@@ -4,9 +4,9 @@ import manFirst from '../../man1-2.png'
 import { NavLink } from 'react-router-dom'
 
 let Users = (props) => {
-
+    
     let onClickFunction = () => {
-        props.switchFetchingAC()
+        props.switchUsersFetchingAC()
     }
 
     return <div className={classes.main}>

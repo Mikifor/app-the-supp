@@ -1,18 +1,17 @@
 import React from 'react'
 import classes from './Admin.module.css'
-//import axios from 'axios'
+import axios from 'axios'
 import preloader from "../../preloader_2.gif"
 const Admin = (props) => {
 
-    //let adminAction = () => {axios.get(`https://social-network.samuraijs.com/api/1.0/users`).then(response => { console.log(response) })}
+    let adminActionOne = () => { axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => { console.log(response) }) }
 
-    let adminAction = () => {console.log(props)}
+    let adminActionTwo = () => {console.log(props)}
 
     return <div className={classes.main} >
         <img src={preloader} alt="Preloader" />
-        {<button onClick={adminAction}>Action</button>
-        
-    }
+        <button onClick={adminActionOne}>Action 1</button>
+        <button onClick={adminActionTwo}>Action 2</button>
     </div>
 }
 

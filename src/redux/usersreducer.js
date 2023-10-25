@@ -66,7 +66,7 @@ export const unfollowAC = (userID) => ({ type: UNFOLLOW, userID })
 export const setUsersAC = (users) => ({ type: SETUSERS, users })
 export const setPageAC = (currentPage) => ({ type: SETCURRENTPAGE, currentPage })
 export const setUsersTotalCountAC = (num) => ({ type: SETUSERSTOTALCOUNT, num })
-export const switchFetchingAC = () => ({ type: SWITCHFETCHING })
+export const switchUsersFetchingAC = () => ({ type: SWITCHFETCHING })
 export const setProfileAC = (profile) => ({ type: SETPROFILE, profile })
 
 export default usersReducer

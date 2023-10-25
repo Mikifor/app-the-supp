@@ -35,7 +35,7 @@ const postReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                postsData: [...state.postsData, newMessage],
+                postsData: [newMessage, ...state.postsData],
                 newPostText: "",
                 nextPostID: ++state.nextPostID
             }

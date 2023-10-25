@@ -6,6 +6,7 @@ import profileReducer from "./profileReducer"
 import usersReducer from "./usersreducer"
 import adminReducer from './adminReducer'
 import programReducer from './programReducer'
+import authReducer from "./authReducer"
 
 let redusers = combineReducers(
     {
@@ -14,7 +15,8 @@ let redusers = combineReducers(
         dialogReducer: dialogReducer,
         usersPage: usersReducer,
         adminpage: adminReducer,
-        programReducer: programReducer
+        programReducer: programReducer,
+        authReducer: authReducer
     }
 )
 

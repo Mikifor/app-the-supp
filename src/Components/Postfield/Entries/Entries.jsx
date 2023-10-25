@@ -17,7 +17,7 @@ const Main = (props) => {
   return <div className={classes.main}>
     <div>
       <textarea className={classes.import} onChange={onChangeFunction} ref={textareaRef} value={props.state.newPostText} />
-      <button onClick={onClickAction}> Send </button>
+      <button onClick={onClickAction}> Publish post </button>
     </div>
   </div>
 }
