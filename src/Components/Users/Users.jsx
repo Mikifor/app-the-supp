@@ -2,11 +2,48 @@ import React from 'react'
 import classes from './Users.module.css'
 import manFirst from '../../man1-2.png'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
 let Users = (props) => {
 
     let onClickFunction = () => {
         props.switchUsersFetchingAC()
+    }
+
+    let followF = (id) => {
+        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {},
+            { withCredentials: true, headers: { "API-KEY": "db556941-92e6-4952-a0c2-9846af1c01d7" } }
+        )
+            .then
+            (response => {
+                if (response.data.resultCode === 0) {
+                    props.followAC(id)
+                    console.log("done")
+                } else {
+                    console.log(response.data.resultCode)
+                    console.log(response.data.messages[0])
+                }
+            })
+    }
+
+    let unfollowF = (id) => {
+        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, { withCredentials: true, headers: { "API-KEY": "db556941-92e6-4952-a0c2-9846af1c01d7" } }).then
+            (response => {
+                if (response.data.resultCode === 0) {
+                    props.unfollowAC(id)
+                    console.log("done")
+                } else {
+                    console.log(response.data.resultCode)
+                    console.log(response.data.messages[0])
+                }
+            })
+    }
+
+    let statusF = (id) => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, { withCredentials: true, headers: { "API-KEY": "db556941-92e6-4952-a0c2-9846af1c01d7" } }).then
+            (response => {
+                console.log(response)
+            })
     }
 
     return <div className={classes.main}>
@@ -23,9 +60,12 @@ let Users = (props) => {
                 </div>
                 <div className={classes.info}>
                     <div className={classes.fbutton}>
-                        {u.follower
-                            ? <button onClick={() => { props.unfollowAC(u.id) }}>Unfollow</button>
-                            : <button onClick={() => { props.followAC(u.id) }}>Follow</button>}
+                        {u.followed
+                            ? <button onClick={() => { unfollowF(u.id) }}>Unfollow</button>
+                            : <button onClick={() => { followF(u.id) }}>Follow</button>}
+                    </div>
+                    <div className={classes.fbutton2}>
+                        <button onClick={() => { statusF(u.id) }}>Status</button>
                     </div>
                     <div className={classes.name}>{u.name}</div>
                     <div className={classes.status}>Статус: {u.status}</div>

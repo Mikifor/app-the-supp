@@ -2,7 +2,6 @@ import React from "react"
 import Preloader from "./Preloader"
 
 let AuthProfile = (props) => {
-    debugger
     if (!props.authData.isFetchin) {
         return <div>
             <div>Ваш профиль</div>

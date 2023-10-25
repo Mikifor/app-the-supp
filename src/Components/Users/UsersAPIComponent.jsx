@@ -7,20 +7,21 @@ import Preloader from './Preloader'
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pagesize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pagesize}`, {withCredentials:true}).then(response => {
             this.props.setUsersAC(response.data.items)
             this.props.setUsersTotalCountAC(response.data.totalCount)
+            console.log(response)
         })
     }
 
     buttonPageOnClick = (p) => {
-        debugger
         this.props.switchUsersFetchingAC()
         this.props.setPageAC(p)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pagesize}`).then
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pagesize}`, {withCredentials:true}).then
             (response => {
                 this.props.setUsersAC(response.data.items)
                 this.props.switchUsersFetchingAC()
+                console.log(response)
             })
     }
 

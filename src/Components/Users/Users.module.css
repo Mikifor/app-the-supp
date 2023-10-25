@@ -21,6 +21,7 @@
   "name"
   "status"
   "fbutton"
+  "fbutton2"
 }
 
 .avatar {
@@ -49,4 +50,8 @@
 
 .status {
   grid-area: status;
+}
+
+.button2 {
+  grid-area: button2;
 }
