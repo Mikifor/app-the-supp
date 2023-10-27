@@ -1,27 +1,25 @@
 import Users from './Users'
-import axios from 'axios'
 import React from 'react'
 import Preloader from './Preloader'
+import { getUsers } from '../../API/axios'
 
 
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pagesize}`, {withCredentials:true}).then(response => {
-            this.props.setUsersAC(response.data.items)
-            this.props.setUsersTotalCountAC(response.data.totalCount)
-            console.log(response)
+        getUsers(this.props.currentPage, this.props.pagesize).then(data => {
+            this.props.setUsersAC(data.items)
+            this.props.setUsersTotalCountAC(data.totalCount)
         })
     }
 
     buttonPageOnClick = (p) => {
         this.props.switchUsersFetchingAC()
         this.props.setPageAC(p)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pagesize}`, {withCredentials:true}).then
-            (response => {
-                this.props.setUsersAC(response.data.items)
+        getUsers(p, this.props.pagesize).then
+            (data => {
+                this.props.setUsersAC(data.items)
                 this.props.switchUsersFetchingAC()
-                console.log(response)
             })
     }
 

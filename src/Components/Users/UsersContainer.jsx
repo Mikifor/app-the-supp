@@ -1,19 +1,18 @@
 import { connect } from 'react-redux'
-import { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, setProfileAC } from '../../redux/usersreducer'
+import { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, setProfileAC, removeDisablingAC, addDisablingAC } from '../../redux/usersreducer'
 import { setAuthAC, switchAuthFetching } from '../../redux/authReducer'
 import UsersAPIComponent from './UsersAPIComponent'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import CertainProfile from './CertainProfile/CertainProfileContainer'
 import { useEffect } from 'react'
-import axios from 'axios'
 import AuthProfile from './AuthProfile'
+import { authMe } from '../../API/axios'
 
 let UserNavigationPage = (props) => {
     useEffect(() => {
         props.switchAuthFetching()
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
-            .then(response => {
-                props.setAuthAC(response.data.data.login, response.data.data.email, response.data.data.id)
+        authMe().then(data => {
+                props.setAuthAC(data.login, data.email, data.id)
                 props.switchAuthFetching()
             })
 
@@ -38,9 +37,10 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         profile: state.usersPage.profile,
-        authProfile: state.authReducer
+        authProfile: state.authReducer,
+        disabledButtons: state.usersPage.disabledButtons
     }
 }
 
 
-export default connect(mapStateToProps, { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, setProfileAC, setAuthAC, switchAuthFetching })(UserNavigationPage)
+export default connect(mapStateToProps, { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, setProfileAC, setAuthAC, switchAuthFetching, removeDisablingAC, addDisablingAC })(UserNavigationPage)

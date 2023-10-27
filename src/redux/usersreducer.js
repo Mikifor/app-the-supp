@@ -5,6 +5,8 @@ const SETCURRENTPAGE = "SETCURRENTPAGE"
 const SETUSERSTOTALCOUNT = "SETUSERSTOTALCOUNT"
 const SWITCHFETCHING = "SWITCHFETCHING"
 const SETPROFILE = "SETPROFILE"
+const BUTTONTURNOFF = "BUTTONTURNOFF"
+const BUTTONTURNON = "BUTTONTURNON"
 
 
 
@@ -15,6 +17,7 @@ let initialState = {
     currentPage: 1,
     isFetching: false,
     profile: [],
+    disabledButtons: [2,3]
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -30,7 +33,6 @@ const usersReducer = (state = initialState, action) => {
         case UNFOLLOW: return {
             ...state,
             users: state.users.map(u => {
-
                 if (u.id === action.userID) { return { ...u, followed: false } } return u
             })
         }
@@ -55,6 +57,14 @@ const usersReducer = (state = initialState, action) => {
             return { ...state, profile: action.profile}
         }
 
+        case BUTTONTURNON: {
+            return {...state, disabledButtons: [...state.disabledButtons, action.id]}
+        }
+
+        case BUTTONTURNOFF: {
+            return {...state, disabledButtons: [...state.disabledButtons.filter(id => id !== action.id)]}
+        }
+
         default: return state
     }
 
@@ -67,5 +77,7 @@ export const setPageAC = (currentPage) => ({ type: SETCURRENTPAGE, currentPage }
 export const setUsersTotalCountAC = (num) => ({ type: SETUSERSTOTALCOUNT, num })
 export const switchUsersFetchingAC = () => ({ type: SWITCHFETCHING })
 export const setProfileAC = (profile) => ({ type: SETPROFILE, profile })
+export const addDisablingAC = (id) => ({ type: BUTTONTURNON, id })
+export const removeDisablingAC = (id) => ({ type: BUTTONTURNOFF, id })
 
 export default usersReducer
