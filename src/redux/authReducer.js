@@ -23,7 +23,6 @@ const authReducer = (state = initialState, action) => {
         }
 
         case setAuthProfile:
-            debugger
             if (action.resultCode === 1) {return {...state, isAuth: false}}
             return {
                 ...state,

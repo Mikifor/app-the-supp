@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import Admin from './Admin'
+import { withAuthRedirect } from '../../HOC/withAuth'
 
 
 let mapStateToProps = (state) => {
@@ -8,10 +9,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-    }
+let AuthAdmin = withAuthRedirect(Admin)
 
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Admin)
+export default connect(mapStateToProps)(AuthAdmin)
