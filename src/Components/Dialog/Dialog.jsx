@@ -3,8 +3,10 @@ import classes from './Dialog.module.css'
 import dialogElements from './dialogData'
 import { Route, Routes } from "react-router-dom"
 import MessageElements from './messageElement'
+import { Navigate } from 'react-router-dom'
 
 const Dialogs = (props) => {
+  if (!props.isAuth) {return <Navigate to="/login"/>}
 
   let newMessage = React.createRef();
 
