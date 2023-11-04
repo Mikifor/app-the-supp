@@ -10,7 +10,7 @@ const instance = axios.create({
 
 
 
-export const getUsers = (currentPage, pagesize) => {
+export const getUsersAx = (currentPage, pagesize) => {
     return instance.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pagesize}`, { withCredentials: true })
         .then(response => { return response.data })
 }

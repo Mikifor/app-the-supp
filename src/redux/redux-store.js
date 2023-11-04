@@ -1,4 +1,4 @@
-import { legacy_createStore } from "redux"
+import { applyMiddleware, legacy_createStore } from "redux"
 import { combineReducers } from "redux"
 import postReducer from "./postReducer"
 import dialogReducer from "./dialogReducer"
@@ -7,6 +7,7 @@ import usersReducer from "./usersreducer"
 import adminReducer from './adminReducer'
 import programReducer from './programReducer'
 import authReducer from "./authReducer"
+import thunkMiddleware from "redux-thunk" 
 
 let redusers = combineReducers(
     {
@@ -21,7 +22,7 @@ let redusers = combineReducers(
 )
 
 
-let store = legacy_createStore(redusers)
+let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware))
 
 
 export default store

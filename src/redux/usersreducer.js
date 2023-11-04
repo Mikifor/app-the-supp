@@ -1,3 +1,6 @@
+import { followAx, unfollowAx, getUsersAx } from '../API/axios'
+
+
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SETUSERS = "SETUSERS"
@@ -12,12 +15,12 @@ const BUTTONTURNON = "BUTTONTURNON"
 
 let initialState = {
     users: [],
-    pagesize:5,
+    pagesize: 5,
     totalUsersCount: 10,
     currentPage: 1,
     isFetching: false,
     profile: [],
-    disabledButtons: [2,3]
+    disabledButtons: [2, 3]
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -50,19 +53,19 @@ const usersReducer = (state = initialState, action) => {
         }
 
         case SWITCHFETCHING: {
-            return { ...state, isFetching: !state.isFetching } 
+            return { ...state, isFetching: !state.isFetching }
         }
 
         case SETPROFILE: {
-            return { ...state, profile: action.profile}
+            return { ...state, profile: action.profile }
         }
 
         case BUTTONTURNON: {
-            return {...state, disabledButtons: [...state.disabledButtons, action.id]}
+            return { ...state, disabledButtons: [...state.disabledButtons, action.id] }
         }
 
         case BUTTONTURNOFF: {
-            return {...state, disabledButtons: [...state.disabledButtons.filter(id => id !== action.id)]}
+            return { ...state, disabledButtons: [...state.disabledButtons.filter(id => id !== action.id)] }
         }
 
         default: return state
@@ -79,5 +82,54 @@ export const switchUsersFetchingAC = () => ({ type: SWITCHFETCHING })
 export const setProfileAC = (profile) => ({ type: SETPROFILE, profile })
 export const addDisablingAC = (id) => ({ type: BUTTONTURNON, id })
 export const removeDisablingAC = (id) => ({ type: BUTTONTURNOFF, id })
+
+export const followTAC = (id) => {
+    return (dispatch) => {
+        dispatch(addDisablingAC(id))
+        followAx(id).then
+            (data => {
+                if (data.resultCode === 0) {
+                    dispatch(followAC(id))
+                    console.log("done")
+                } else {
+                    console.log(data.resultCode)
+                    console.log(data.messages[0])
+                }
+                dispatch(removeDisablingAC(id))
+            })
+    }
+}
+
+
+export const unfollowTAC = (id) => {
+    return (dispatch) => {
+
+        dispatch(addDisablingAC(id))
+        unfollowAx(id).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unfollowAC(id))
+                console.log("done")
+            } else {
+                console.log(data.resultCode)
+                console.log(data.messages[0])
+            }
+            dispatch(removeDisablingAC(id))
+        })
+    }
+}
+
+export const getUsersTAC = (p, pagesize) => {
+    return (dispatch) => {
+        dispatch(switchUsersFetchingAC())
+        dispatch(setPageAC(p))
+        getUsersAx(p, pagesize).then
+            (data => {
+                dispatch(setUsersAC(data.items))
+                dispatch(switchUsersFetchingAC())
+            })
+        
+    }
+}
+
 
 export default usersReducer

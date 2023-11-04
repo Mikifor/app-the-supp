@@ -1,26 +1,20 @@
 import Users from './Users'
 import React from 'react'
 import Preloader from './Preloader'
-import { getUsers } from '../../API/axios'
+import { getUsersAx } from '../../API/axios' 
 
 
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
-        getUsers(this.props.currentPage, this.props.pagesize).then(data => {
+        getUsersAx(this.props.currentPage, this.props.pagesize).then(data => {
             this.props.setUsersAC(data.items)
             this.props.setUsersTotalCountAC(data.totalCount)
         })
     }
 
     buttonPageOnClick = (p) => {
-        this.props.switchUsersFetchingAC()
-        this.props.setPageAC(p)
-        getUsers(p, this.props.pagesize).then
-            (data => {
-                this.props.setUsersAC(data.items)
-                this.props.switchUsersFetchingAC()
-            })
+        this.props.getUsersTAC(p, this.props.pagesize )
     }
 
     currentShowedPages = []

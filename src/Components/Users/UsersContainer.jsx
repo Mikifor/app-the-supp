@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, setProfileAC, removeDisablingAC, addDisablingAC } from '../../redux/usersreducer'
+import { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, 
+    setProfileAC, removeDisablingAC, addDisablingAC, followTAC, unfollowTAC, getUsersTAC } from '../../redux/usersreducer'
 import { setAuthAC, switchAuthFetching } from '../../redux/authReducer'
 import UsersAPIComponent from './UsersAPIComponent'
 import { NavLink, Route, Routes } from 'react-router-dom'
@@ -43,4 +44,7 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, setProfileAC, setAuthAC, switchAuthFetching, removeDisablingAC, addDisablingAC })(UserNavigationPage)
+export default connect(mapStateToProps, 
+    { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, 
+        switchUsersFetchingAC, setProfileAC, setAuthAC, switchAuthFetching, 
+        removeDisablingAC, addDisablingAC, followTAC, unfollowTAC, getUsersTAC })(UserNavigationPage)
