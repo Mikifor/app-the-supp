@@ -16,7 +16,7 @@ export const getUsersAx = (currentPage, pagesize) => {
 }
 
 export const authMe = () => {
-    return instance.get(`auth/me`).then(response => { return response.data.data })
+    return instance.get(`auth/me`).then(response => { console.log(response); return response.data })
 }
 
 export const followAx = (id) => {

@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import UsersContainer from './Components/Users/UsersContainer'
 import AdminConsole from './Components/Admin/AdminContainer'
 import ProgramBarContainer from './Components/Programs/ProgramBarContainer'
+import Login from './Components/Login/login'
 
 const App = (props) => {
   return (
@@ -25,6 +26,7 @@ const App = (props) => {
               <Route path='/programs/*' element={<ProgramBarContainer />} />
               <Route path='/users/*' element={<UsersContainer />} />
               <Route path='/admin/*' element={<AdminConsole />} />
+              <Route path='/login/*' element={<Login />} />
             </Routes>
           </div>
         </div>

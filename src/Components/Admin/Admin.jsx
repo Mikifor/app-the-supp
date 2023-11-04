@@ -2,7 +2,10 @@ import React from 'react'
 import classes from './Admin.module.css'
 import axios from 'axios'
 import preloader from "../../preloader_2.gif"
+import { Navigate } from 'react-router-dom'
+
 const Admin = (props) => {
+    if (!props.state.authReducer.isAuth) {return <Navigate to="/login"/>}
 
     let adminActionOne = () => { axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => { console.log(response) }) }
 

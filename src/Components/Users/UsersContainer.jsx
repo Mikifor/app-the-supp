@@ -13,7 +13,7 @@ let UserNavigationPage = (props) => {
     useEffect(() => {
         props.switchAuthFetching()
         authMe().then(data => {
-                props.setAuthAC(data.login, data.email, data.id)
+                props.setAuthAC(data.data.login, data.data.email, data.data.id, data.resultCode)
                 props.switchAuthFetching()
             })
 

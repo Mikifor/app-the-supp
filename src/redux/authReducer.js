@@ -1,7 +1,7 @@
 const switchFetching = "switchFetching"
 const setAuthProfile = "setAuthProfile"
 
-export const setAuthAC = (login, email, id) => ({ type: setAuthProfile, login: login, email: email, id: id })
+export const setAuthAC = (login, email, id, resultCode) => ({ type: setAuthProfile, login: login, email: email, id: id, resultCode: resultCode })
 export const switchAuthFetching = () => ({ type: switchFetching })
 
 let initialState = {
@@ -23,6 +23,8 @@ const authReducer = (state = initialState, action) => {
         }
 
         case setAuthProfile:
+            debugger
+            if (action.resultCode === 1) {return {...state, isAuth: false}}
             return {
                 ...state,
                 login: action.login,
