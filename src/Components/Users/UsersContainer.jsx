@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, 
-    setProfileAC, removeDisablingAC, addDisablingAC, followTAC, unfollowTAC, getUsersTAC } from '../../redux/usersreducer'
+import { setUsersAC, setPageAC, setUsersTotalCountAC, switchUsersFetchingAC, 
+    setProfileAC, removeDisablingAC, addDisablingAC, followTAC, unfollowTAC, getUsersTAC, getCertainProfileTAC } from '../../redux/usersreducer'
 import { setAuthAC, switchAuthFetching } from '../../redux/authReducer'
 import UsersAPIComponent from './UsersAPIComponent'
 import { NavLink, Route, Routes } from 'react-router-dom'
@@ -25,7 +25,7 @@ let UserNavigationPage = (props) => {
         <Routes>
             <Route path='*' element={<AuthProfile authData={props.authProfile} />} />
             <Route path='/usearch' element={<UsersAPIComponent {...props} />} />
-            <Route path='profile/:userID?' element={<CertainProfile {...props} />} />
+            <Route path='profile/:userID?' element={<CertainProfile getCertainProfileTAC={props.getCertainProfileTAC} isFetching={props.isFetching} profile={props.profile} switchUsersFetchingAC={props.switchUsersFetchingAC} setProfileAC={props.setProfileAC}/>} />
         </Routes>
     </div>
 }
@@ -38,13 +38,13 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         profile: state.usersPage.profile,
-        authProfile: state.authReducer,
-        disabledButtons: state.usersPage.disabledButtons
+        disabledButtons: state.usersPage.disabledButtons,
+        authProfile: state.authReducer
     }
 }
-
+ 
 
 export default connect(mapStateToProps, 
-    { followAC, unfollowAC, setUsersAC, setPageAC, setUsersTotalCountAC, 
+    { setUsersAC, setPageAC, setUsersTotalCountAC, 
         switchUsersFetchingAC, setProfileAC, setAuthAC, switchAuthFetching, 
-        removeDisablingAC, addDisablingAC, followTAC, unfollowTAC, getUsersTAC })(UserNavigationPage)
+        removeDisablingAC, addDisablingAC, followTAC, unfollowTAC, getUsersTAC, getCertainProfileTAC })(UserNavigationPage)

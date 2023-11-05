@@ -1,5 +1,4 @@
-import { followAx, unfollowAx, getUsersAx } from '../API/axios'
-
+import { followAx, unfollowAx, getUsersAx, getUserAx } from '../API/axios'
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
@@ -11,8 +10,6 @@ const SETPROFILE = "SETPROFILE"
 const BUTTONTURNOFF = "BUTTONTURNOFF"
 const BUTTONTURNON = "BUTTONTURNON"
 
-
-
 let initialState = {
     users: [],
     pagesize: 5,
@@ -20,7 +17,7 @@ let initialState = {
     currentPage: 1,
     isFetching: false,
     profile: [],
-    disabledButtons: [2, 3]
+    disabledButtons: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -128,6 +125,15 @@ export const getUsersTAC = (p, pagesize) => {
                 dispatch(switchUsersFetchingAC())
             })
         
+    }
+}
+
+export const getCertainProfileTAC = (id) => {
+    return (dispatch) => {
+        getUserAx(id).then(response => {
+            dispatch(setProfileAC(response.data))
+            dispatch(switchUsersFetchingAC())
+        })
     }
 }
 

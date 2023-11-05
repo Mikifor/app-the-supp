@@ -30,3 +30,7 @@ export const unfollowAx = (id) => {
 export const statusAx = (id) => {
     return instance.get(`follow/${id}`).then(response => { return response.data })
 }
+
+export const getUserAx = (id) => {
+    return instance.get(`profile/${id}`).then(response => {return response})
+}

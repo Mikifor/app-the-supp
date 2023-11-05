@@ -1,14 +1,11 @@
 import { connect } from 'react-redux'
 import Admin from './Admin'
 import { withAuthRedirect } from '../../HOC/withAuth'
+import { compose } from 'redux'
 
 
 let mapStateToProps = (state) => {
-    return {
-        state: state
-    }
+    return { state: state }
 }
 
-let AuthAdmin = withAuthRedirect(Admin)
-
-export default connect(mapStateToProps)(AuthAdmin)
+export default compose (connect(mapStateToProps), withAuthRedirect)(Admin)

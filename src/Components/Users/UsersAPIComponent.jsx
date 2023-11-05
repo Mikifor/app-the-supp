@@ -49,12 +49,12 @@ class UsersAPIComponent extends React.Component {
                 if (this.currentShowedPages[i] === 1) {
                     this.currentShowedPages.splice(i, 1)
                 }
-            }
+            } 
 
             if (this.currentShowedPages[this.currentShowedPages.length - 1] === this.currentShowedPages[this.currentShowedPages.length - 2]) { this.currentShowedPages.pop() }
         }
-
-        return this.props.isFetching ? <Preloader /> : <Users setProfileAC={this.props.setProfileAC} callCertainPerson={this.callCertainPerson} currentShowedPages={this.currentShowedPages} buttonPageOnClick={this.buttonPageOnClick} {...this.props} />
+ 
+        return this.props.isFetching ? <Preloader /> : <Users callCertainPerson={this.callCertainPerson} currentShowedPages={this.currentShowedPages} buttonPageOnClick={this.buttonPageOnClick} {...this.props} />
     }
 }
 

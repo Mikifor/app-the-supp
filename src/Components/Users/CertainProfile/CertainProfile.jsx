@@ -1,33 +1,19 @@
-import Preloader from '../Preloader'
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 let CertainProfile = (props) => {
-    debugger
-
-    useEffect(() => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${props.router.params.userID}`).then(response => {
-            props.setProfileAC(response.data)
-            props.switchUsersFetchingAC()
-        })
-       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [] )
-
     return <div>
-        {props.isFetching ? <Preloader /> : <div>
                 <div>{"Имя: " + props.profile.fullName}</div>
                 <div>{"ID: " + props.profile.userId}</div>
-                <div>{props.profile.photos.small ? <img src={props.profile.photos.small} alt="Avatar" /> : "nofoto"}</div> {/* ошибка в small*/}
+                <div>{props.profile.photos.small ? <img src={props.profile.photos.small} alt="Avatar" /> : "nofoto"}</div>
+                {/*потому что без переключения заранее isFetching будет сначала отрисовываться компонента с данными и получать ошибку на photos.small */}
                 <div>{"Контакты"}</div>
                 <div>{"VK: " + props.profile.contacts.vk}</div>
                 <div>{"GitHub: " + props.profile.contacts.github}</div> 
                 <div>{"Instagram: " + props.profile.contacts.instagram}</div>
                 <div>{"Facebook: " + props.profile.contacts.facebook}</div>
                 <div>{"Личный сайт: " + props.profile.contacts.website}</div> 
-            </div> }
+
     </div>
 }
-
-
 
 export default CertainProfile
