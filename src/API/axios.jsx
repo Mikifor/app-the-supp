@@ -11,7 +11,7 @@ const instance = axios.create({
 
 
 export const getUsersAx = (currentPage, pagesize) => {
-    return instance.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pagesize}`, { withCredentials: true })
+    return instance.get(`users?page=${currentPage}&count=${pagesize}`)
         .then(response => { return response.data })
 }
 
@@ -33,4 +33,12 @@ export const statusAx = (id) => {
 
 export const getUserAx = (id) => {
     return instance.get(`profile/${id}`).then(response => {return response})
+}
+
+export const getStatusAx = (id) => {
+    return instance.get(`profile/status/${id}`).then(response => {return response})
+}
+
+export const setStatusAx = (status) => {
+    return instance.put(`profile/status`, {mystatus: status }).then(response => {return response})
 }

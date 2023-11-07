@@ -1,5 +1,6 @@
 import CertainProfile from './CertainProfile'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
 import React from 'react'
 import Preloader from '../Preloader'
 import { withRouter } from '../../../HOC/withRouter'
@@ -16,9 +17,7 @@ class CertainProfileAPIComponent extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    return {
-        users: state.profile
-    }
+    return { users: state.profile }
 }
 
-export default connect(mapStateToProps, {})(withRouter(CertainProfileAPIComponent))
+export default compose(withRouter, connect(mapStateToProps, {}))(CertainProfileAPIComponent)

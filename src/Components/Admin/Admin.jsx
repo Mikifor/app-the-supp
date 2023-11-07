@@ -14,6 +14,7 @@ const Admin = (props) => {
         <img src={preloader} alt="Preloader" />
         <button onClick={adminActionOne}>Action 1</button>
         <button onClick={adminActionTwo}>Action 2</button>
+        <div>{("1" === "2") ? ("6" === "6") ? 3 : 5 : 4}</div>
     </div>
 }
 

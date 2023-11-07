@@ -11,7 +11,7 @@ import AdminConsole from './Components/Admin/AdminContainer'
 import ProgramBarContainer from './Components/Programs/ProgramBarContainer'
 import Login from './Components/Login/login'
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className={classes.app_background}>

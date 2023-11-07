@@ -8,7 +8,9 @@ let initialState = {
 
     privateInfo: {
         name: 'Mikifor', age: 27, languages: 'Ru, Eng, JS', tools: 'React, Redux, axios', vk: 'vk.com/mikifor'
-    }
+    },
+
+    status: "Initial status"
 }
 
 const profileReducer = (state = initialState, action) => {
