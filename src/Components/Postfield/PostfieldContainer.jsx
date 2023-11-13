@@ -1,5 +1,5 @@
 import Postfield from './Postfield'
-import { newPostFunctionActionCreater, onChangePostFunctionActionCreater, upCounterActionCreater } from './../../redux/postReducer'
+import { newPostFunctionActionCreater, upCounterActionCreater } from './../../redux/postReducer'
 import { connect } from "react-redux"
 
 let mapStateToProps = (state) => {
@@ -9,9 +9,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    onClickAction: () => { dispatch(newPostFunctionActionCreater()) },
-    onClickLikeFunction: (id) => { dispatch(upCounterActionCreater(id)) },
-    onChangeFunction: (text) => { dispatch(onChangePostFunctionActionCreater(text)) }
+    onClickAction: (text) => { dispatch(newPostFunctionActionCreater(text)) },
+    onClickLikeFunction: (id) => { dispatch(upCounterActionCreater(id)) }
   }
 }
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import classes from './Admin.module.css'
-import axios from 'axios'
+import { getStatusAx } from '../../API/axios'
 import preloader from "../../preloader_2.gif"
 
 
 const Admin = (props) => {
 
-    let adminActionOne = () => { axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => { console.log(response) }) }
+    let adminActionOne = () => { getStatusAx(30219).then(data => {console.log(data)}) }
 
     let adminActionTwo = () => {console.log(props)}
 
@@ -14,7 +14,7 @@ const Admin = (props) => {
         <img src={preloader} alt="Preloader" />
         <button onClick={adminActionOne}>Action 1</button>
         <button onClick={adminActionTwo}>Action 2</button>
-        <div>{("1" === "2") ? ("6" === "6") ? 3 : 5 : 4}</div>
+        <div>{("1" === "2") ? ("6" === 6) ? 3 : 5 : 4}</div>
     </div>
 }
 

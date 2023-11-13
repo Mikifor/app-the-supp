@@ -17,7 +17,7 @@ let postElements = (props) => {
 
 const Postfield = (props) => {
   return <div className={classes.main}>
-    {<Entries onChangeFunction={props.onChangeFunction} onClickAction={props.onClickAction} state={props.state} />}
+    {<Entries onClickAction={props.onClickAction} state={props.state} />}
     {postElements(props)}
   </div>
 

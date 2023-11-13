@@ -1,11 +1,8 @@
 const addMessage = "addMessage"
-const changeDialogTextArea = "changeDialogTextArea"
 
-export const onChangeDialogFunctionActionCreater = (text) => ({ type: changeDialogTextArea, text: text })
-export const newMessageFunctionActionCreater = () => ({ type: addMessage })
+export const newMessageFunctionActionCreater = (text) => ({ type: addMessage, text:text })
 
 let initialState = {
-    newMessageText: "",
     currentDialogIndex: "0",
 
     messagesInfo: [
@@ -99,7 +96,7 @@ const dialogReducer = (state = initialState, action) => {
             let newMessageID = state.messagesInfo[state.currentDialogIndex].messagesLastId
             ++newMessageID
             let newMessage = {
-                text: state.newMessageText,
+                text: action.text,
                 id: newMessageID,
                 author: 'Mikifor'
             }
@@ -114,16 +111,8 @@ const dialogReducer = (state = initialState, action) => {
             return copyState
         }
 
-        case changeDialogTextArea:
-            return {
-                ...state,
-                newMessageText: action.text
-            }
-
         default: return state
     }
-
-
 }
 
 export default dialogReducer

@@ -16,7 +16,7 @@ export const getUsersAx = (currentPage, pagesize) => {
 }
 
 export const authMe = () => {
-    return instance.get(`auth/me`).then(response => { console.log(response); return response.data })
+    return instance.get(`auth/me`).then(response => { return response.data })
 }
 
 export const followAx = (id) => {
@@ -40,5 +40,5 @@ export const getStatusAx = (id) => {
 }
 
 export const setStatusAx = (status) => {
-    return instance.put(`profile/status`, {mystatus: status }).then(response => {return response})
+    return instance.put(`profile/status`, {status: status }).then(response => {return response.data.resultCode})
 }

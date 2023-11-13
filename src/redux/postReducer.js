@@ -1,9 +1,7 @@
 const addPost = "addPost"
-const changePostTextArea = "changeTextArea"
 const upCounter = "upCounter"
 
-export const onChangePostFunctionActionCreater = (text) => ({ type: changePostTextArea, text: text })
-export const newPostFunctionActionCreater = () => ({ type: addPost })
+export const newPostFunctionActionCreater = (text) => ({ type: addPost, text: text })
 export const upCounterActionCreater = (id) => ({ type: upCounter, id: id })
 
 let initialState = {
@@ -30,7 +28,7 @@ const postReducer = (state = initialState, action) => {
                 id: state.nextPostID,
                 author: 'Mikifor',
                 likeCounter: 0,
-                text: state.newPostText
+                text: action.text
             }
 
             return {
@@ -38,13 +36,6 @@ const postReducer = (state = initialState, action) => {
                 postsData: [newMessage, ...state.postsData],
                 newPostText: "",
                 nextPostID: ++state.nextPostID
-            }
-        }
-
-        case changePostTextArea: {
-            return {
-                ...state,
-                newPostText: action.text
             }
         }
 

@@ -1,22 +1,27 @@
 import React from 'react'
 import classes from './Entries.module.css'
+import { Field, reduxForm } from 'redux-form'
 
 const Main = (props) => {
 
   let textareaRef = React.createRef()
 
-  let onClickAction = () => {
-    props.onClickAction()
+  let NewPostForm = (props) => {
+    return <form onSubmit={props.handlesubmit}>
+      <Field className={classes.import} name={"NewPost"} component={"input"} type={"text"} ref={textareaRef}/>
+    </form>
   }
 
-  let onChangeFunction = () => {
-    let text = textareaRef.current.value;
-    props.onChangeFunction(text)
+  NewPostForm = reduxForm({form: "NewPost"})(NewPostForm)
+
+  let onClickAction = () => {
+    let text = textareaRef.current.value
+    props.onClickAction(text)
   }
 
   return <div className={classes.main}>
     <div>
-      <textarea className={classes.import} onChange={onChangeFunction} ref={textareaRef} value={props.state.newPostText} />
+      <NewPostForm />
       <button onClick={onClickAction}> Publish post </button>
     </div>
   </div>
